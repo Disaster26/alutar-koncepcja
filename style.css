@@ -199,3 +199,25 @@ h2 span,h1 span{color:var(--akcent)}
   .hero-cta{margin-top:22px}.fakty{margin-top:24px;padding-top:18px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+/* telefon: cale zdjecie produktu nad tekstem zamiast losowego wycinka w tle */
+@media (max-width:760px){
+  .hero{flex-direction:column;align-items:stretch;background:#121518}
+  .hero-foto{position:relative;inset:auto;z-index:0;aspect-ratio:3/2;flex:0 0 auto}
+  .hero-foto img{object-position:center 60%}
+  .hero-foto::after{content:"";position:absolute;left:0;right:0;bottom:0;height:38%;background:linear-gradient(180deg,rgba(18,21,24,0),#121518)}
+  .hero::before{display:none}
+  .hero-in{flex:1 1 auto;justify-content:center;padding:6px 0 24px;margin-top:-14px;position:relative;z-index:1}
+}
+@media (max-width:760px){
+  .hero-foto{aspect-ratio:auto;height:min(66.7vw,31svh)}
+  .hero h1{font-size:clamp(28px,min(9.4vw,5.1svh),44px)}
+  .hero .lead{font-size:clamp(14px,2.2svh,15.5px);margin-top:10px}
+  .hero-cta{margin-top:16px}
+  .fakty{margin-top:16px;padding-top:12px}
+}
+@media (max-width:760px){
+  .hero-foto{height:auto;flex:1 1 auto;min-height:min(56vw,26svh);max-height:56svh}
+  .hero-in{flex:0 0 auto;padding-bottom:22px}
+  .hero-foto img{position:absolute;inset:0}
+  .hero-foto{flex-basis:0}
+}
